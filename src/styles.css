@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .correct-answer {
+    @apply bg-green-600
+  }
+
+  .incorrect-answer {
+    @apply bg-red-600
+  }
+
+  .default-answer {
+    @apply bg-gray-400
+  }
+
+  .progress-item {
+    @apply w-full h-2.5 flex flex-col justify-center overflow-hidden text-center whitespace-nowrap transition duration-500
+  }
+  .menu-item {
+   @apply block text-gray-700 hover:text-primary-700 dark:text-gray-400 dark:hover:text-white
+  }
+  .active-menu {
+    @apply text-primary-700 dark:text-primary-500
+  }
+
+
+
+
+
+}

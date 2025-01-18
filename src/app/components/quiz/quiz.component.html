@@ -1,0 +1,48 @@
+@if ((userQuiz)?.currentQuestion; as q) {
+    <div class="mx-auto max-w-screen-m">
+    <div class="bar">{{(userQuiz?.progression ?? 0) + 1 }}/{{userQuiz?.nbQuestion}}
+        <div class="mt-2 flex items-center gap-x-1">
+            @for (item of nbQuestion ; track $index) {
+                <div [ngClass] = "getProgressItemClass($index)" class="progress-item progress-succes" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+            }
+        </div>
+    
+    </div>
+    
+    <div class="question my-4">
+        {{q.question}}    
+    </div>
+    <div class="options grid grid-cols-1" [ngClass]="{'md:grid-cols-2' : userQuiz?.currentQuestion?.questionVisual}">
+        @if (userQuiz?.currentQuestion?.questionVisual) {
+            <div class=" "><div class="bg-white p-2 mb-4"><img src="{{q.questionVisual?.imgUrl}}" alt="{{q.questionVisual?.imgAlt}}" ></div></div>
+        }
+        <div class="ml-2">
+            @for (o of q.options; track o) {
+            
+            <div (click)="saveChoice(o.id)" [ngClass]="isOptionClickable()" class="mb-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-200 question-type-{{userQuiz?.currentQuestion?.questionType}} " >
+                
+                <div  class="flex ">
+                    <div [ngClass] = "getOptionCLass(o)" class="w-7  rounded-tl rounded-bl align-text-middle flex justify-center items-center "> 
+                        <div class="text-center text-white">{{o.optionMarker}}</div>
+                    </div>
+                    <div class="flex-1 mb-3 font-normal text-gray-700 dark:text-gray-400 px-4 py-6">
+                        {{o.optionText}} 
+                        @if (o.optionVisual?.imgUrl) {
+                            <img src="{{o.optionVisual?.imgUrl}}" alt="{{o.optionVisual?.imgAlt}}" >
+                        }
+                        @if(userQuiz?.choosedOptionId && o.isCorrect) {
+                            <div class="mt-2 pt-2 border-t border-gray-200">{{q.explanation}}</div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+        @if (userQuiz?.choosedOptionId) {
+            <button (click)="goToNextQuestion()" type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2  dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Suivant</button>
+
+        }
+
+        </div>
+    </div>
+</div>
+}

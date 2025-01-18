@@ -1,0 +1,29 @@
+<div class="mb-8 text-justify">
+    <p class="mb-5">Notre application, spécialement conçue pour aider les utilisateurs à se préparer au <b>test
+            théorique de la SAAQ en ligne</b>, possède plus de 500 questions uniques.
+        Ce qui permet aux apprenants de s'entraîner de manière exhaustive et d'acquérir une compréhension approfondie
+        des règles de <b>conduite sur la route</b>.
+        Elle offre une interface conviviale et intuitive.
+    </p>
+    <p>
+        Les utilisateurs peuvent <b>s'entraîner</b> à leur rythme grâce à des <b>tests pratiques personnalisés</b>, des
+        explications détaillées pour chaque réponse, et des statistiques de performance pour identifier les domaines
+        nécessitant une amélioration.
+        De plus, des fonctionnalités interactives telles que des quiz chronométrés et des simulations d'examen complet
+        permettent de reproduire les conditions réelles de l'examen, assurant ainsi une préparation optimale.
+        Grâce à notre application, les utilisateurs peuvent aborder leur test théorique de la SAAQ avec confiance et
+        sérénité.
+    </p>
+</div>
+
+@for (quiz of listQuiz | async; track $index) {
+<a [routerLink]="['/quiz', quiz.id]"
+    class="inline-flex items-center mr-3 mb-3 px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+    Test connaissance SAAQ Partie {{$index + 1}}
+    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+        viewBox="0 0 14 10">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M1 5h12m0 0L9 1m4 4L9 9" />
+    </svg>
+</a>
+}

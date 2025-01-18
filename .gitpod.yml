@@ -1,0 +1,10 @@
+vscode:
+  extensions:
+    - Angular.ng-template
+    - tomwhite007.rename-angular-component
+    - PKief.material-icon-theme
+    - MichaelCurrin.auto-commit-msg
+
+tasks:
+  - init: npm install && npm run build
+    command: npm run start

@@ -1,0 +1,6 @@
+**/node_modules
+howtofrontend/node_modules
+.git
+.idea
+gradle
+.vscode

@@ -1,0 +1,163 @@
+<div class="min-h-screen flex flex-col md:flex-row">
+
+    <!-- Sidebar -->
+    <div class=" md:w-1/3 lg:w-1/3 flex-shrink-0 border-gray-300 border-solid border">
+        @for (item of autoecoles; track item.id) { 
+          <a [routerLink]="['/trouver-une-ecole', 'abc-def']" routerLinkActive="active"> 
+            <div class="bg-white  p-4 py-5 hover:shadow-md hover:cursor-pointer border-b">
+              <h3 class="text-lg font-semibold text-gray-800">{{item.nomEcole}}</h3>
+              <p class="text-sm ">{{item.adresse}}, {{item.codePostal}} {{item.ville}} ({{item.region}})</p>
+              <p class="text-sm ">Téléphone : {{item.telephone}}</p>
+            </div>
+          </a>
+          }
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col min-h-fit pl-4 pt-0 ">
+        <div class="sticky top-0  bg-white border-gray-300 border-solid border">
+          <router-outlet></router-outlet>
+        </div>
+      
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="h-screen flex flex-col md:flex-row">
+
+    <!-- Sidebar -->
+    <div class="bg-white md:w-1/3 lg:w-1/4 flex-shrink-0 h-full overflow-y-auto border-r border-gray-200">
+      <ul class="space-y-4 p-4">
+        <li class="p-3 bg-gray-100 rounded hover:bg-gray-200 cursor-pointer">Item 1</li>
+        
+
+       
+
+      </ul>
+      @for (item of autoecoles; track item.id) { 
+        <div
+        class="bg-white border border-blue-100 rounded-lg mb-4 p-4 hover:shadow-md hover:bg-blue-300 transition-shadow">
+        <h3 class="text-lg font-semibold text-gray-800">{{item.nomEcole}}</h3>
+        <p class="text-sm text-gray-600">{{item.adresse}}, {{item.codePostal}} {{item.ville}} ({{item.region}})</p>
+        <p class="text-sm text-gray-600">Téléphone : {{item.telephone}}</p>
+    </div>
+    }
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 hidden md:block p-6">
+      <h1 class="text-xl font-bold">Detail View</h1>
+      <p class="mt-4 text-gray-600">
+        Select an item from the list to see details here. This area can contain text, images, or other components related to the selected item.
+      </p>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-col lg:flex-row max-w-7xl mx-auto p-4">
+    <!-- Zone des filtres -->
+    <aside class="bg-white border border-gray-200 rounded-lg shadow-sm p-4 w-full lg:w-1/4 mb-4 lg:mb-0 lg:mr-4">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">Filtres</h2>
+        
+        <!-- Section Type -->
+        <div class="mb-4">
+            <h3 class="text-sm font-medium text-gray-700 mb-2">Type</h3>
+            <div class="space-y-2">
+                <label class="flex items-center">
+                    <input type="checkbox" class="form-checkbox text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-400">
+                    <span class="ml-2 text-sm text-gray-600">Auto</span>
+                </label>
+                <label class="flex items-center">
+                    <input type="checkbox" class="form-checkbox text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-400">
+                    <span class="ml-2 text-sm text-gray-600">Moto</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Section Ville -->
+        <div class="mb-4">
+            <h3 class="text-sm font-medium text-gray-700 mb-2">Ville</h3>
+            <input type="text" placeholder="Rechercher une ville"
+                class="w-full border-gray-300 rounded-lg text-sm p-2 focus:ring-2 focus:ring-blue-400">
+        </div>
+
+        <!-- Section Région -->
+        <div class="mb-4">
+            <h3 class="text-sm font-medium text-gray-700 mb-2">Région</h3>
+            <select class="w-full border-gray-300 rounded-lg text-sm p-2 focus:ring-2 focus:ring-blue-400">
+                <option>Toutes les régions</option>
+                <option>Île-de-France</option>
+                <option>Provence-Alpes-Côte d'Azur</option>
+                <option>Auvergne-Rhône-Alpes</option>
+                <!-- Ajouter d'autres régions -->
+            </select>
+        </div>
+
+        <!-- Bouton Appliquer les filtres -->
+        <button class="w-full bg-blue-600 text-white text-sm font-medium py-2 rounded-lg hover:bg-blue-700 transition">
+            Appliquer les filtres
+        </button>
+    </aside>
+
+    <!-- Zone des résultats -->
+    <main class="w-full lg:w-3/4">
+        <!-- Exemple de carte de résultat -->
+
+        
+@for (item of autoecoles; track item.id) { 
+    <div
+    class="bg-white border border-blue-100 rounded-lg mb-4 p-4 hover:shadow-md hover:bg-blue-300 transition-shadow">
+    <h3 class="text-lg font-semibold text-gray-800">{{item.nomEcole}}</h3>
+    <p class="text-sm text-gray-600">{{item.adresse}}, {{item.codePostal}} {{item.ville}} ({{item.region}})</p>
+    <p class="text-sm text-gray-600">Téléphone : {{item.telephone}}</p>
+</div>
+}
+        
+        <!-- Répéter les cartes de résultats -->
+    </main>
+</div>
